@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://cm0u6rlp1warw"]
+
+[ext_resource type="Script" uid="uid://pnm13hohy3qx" path="res://object_handler.gd" id="1_inftv"]
+[ext_resource type="Script" uid="uid://dp4mb0t3mgung" path="res://camera_3d.gd" id="2_jltlb"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_q6y3m"]
+
+[sub_resource type="Sky" id="Sky_x2q4q"]
+sky_material = SubResource("ProceduralSkyMaterial_q6y3m")
+
+[sub_resource type="Environment" id="Environment_jltlb"]
+background_mode = 2
+sky = SubResource("Sky_x2q4q")
+ambient_light_source = 2
+ambient_light_color = Color(0.9367016, 0.9367016, 0.93670154, 1)
+ambient_light_sky_contribution = 0.0
+ambient_light_energy = 2.05
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wphi6"]
+transparency = 1
+shading_mode = 0
+specular_mode = 2
+albedo_color = Color(0.57396513, 0.57396513, 0.57396513, 0)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_uhqf3"]
+material = SubResource("StandardMaterial3D_wphi6")
+size = Vector2(50, 50)
+subdivide_width = 10
+subdivide_depth = 10
+
+[node name="3DLayer" type="CanvasLayer" unique_id=1526374013]
+
+[node name="Render" type="Node3D" parent="." unique_id=1616919160]
+
+[node name="Object Handler" type="Node3D" parent="Render" unique_id=432150039]
+script = ExtResource("1_inftv")
+
+[node name="Lighting" type="WorldEnvironment" parent="Render" unique_id=633875977]
+environment = SubResource("Environment_jltlb")
+
+[node name="Grid" type="MeshInstance3D" parent="Render" unique_id=832391277]
+mesh = SubResource("PlaneMesh_uhqf3")
+metadata/_edit_lock_ = true
+
+[node name="Camera3D" type="Camera3D" parent="Render" unique_id=2138174349]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.04996, 5.0718007)
+current = true
+script = ExtResource("2_jltlb")

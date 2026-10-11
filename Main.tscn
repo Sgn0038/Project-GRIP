@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://wpijqpmbmeei"]
+
+[ext_resource type="PackedScene" uid="uid://cm0u6rlp1warw" path="res://3D.tscn" id="1_uu6xs"]
+[ext_resource type="PackedScene" uid="uid://drs5qptrs6rdb" path="res://Screen.tscn" id="2_r0du0"]
+
+[node name="Node" type="Node" unique_id=1574621800]
+
+[node name="3DLayer" parent="." unique_id=1526374013 instance=ExtResource("1_uu6xs")]
+
+[node name="UILayer" parent="." unique_id=1376167344 instance=ExtResource("2_r0du0")]

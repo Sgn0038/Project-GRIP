@@ -10,12 +10,19 @@ config_version=5
 
 [application]
 
-config/name="Project-Grip"
-config/features=PackedStringArray("4.7", "GL Compatibility")
+config/name="Project GRIP"
+config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+SignalBus="*uid://cp4tyqjnjjky0"
 
 [display]
 
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/size/borderless=true
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
@@ -26,5 +33,3 @@ window/stretch/aspect="expand"
 [rendering]
 
 rendering_device/driver.windows="d3d12"
-renderer/rendering_method="gl_compatibility"
-renderer/rendering_method.mobile="gl_compatibility"
