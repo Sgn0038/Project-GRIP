@@ -4,6 +4,7 @@ extends Node3D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	SignalBus.object_filepath_chosen.connect(load_object_model)
+	SignalBus.object_clear_all.connect(remove_all_objects)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -33,3 +34,7 @@ func load_object_model(path: String):
 	if spawned_object is Node3D:
 		spawned_object.global_position = Vector3(0, 0, 0) 
 	spawned_object.scale = Vector3(1, 1, 1)
+
+func remove_all_objects():
+	for child in get_children():
+		remove_child(child)

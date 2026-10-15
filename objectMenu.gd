@@ -19,7 +19,8 @@ func on_press(index):
 	match index:
 		0:
 			object_file_picker.popup_centered_ratio(0.6)
-			# Now the signal is connected and will run import
+		1:
+			SignalBus.object_clear_all.emit()
 
 
 func alert_object_manager(path: String):
