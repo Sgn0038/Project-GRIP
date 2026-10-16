@@ -1,0 +1,199 @@
+[gd_scene format=3 uid="uid://dyjhnxxqfrnoo"]
+
+[ext_resource type="PackedScene" uid="uid://b8cwnoqughv10" path="res://hand/hand.tscn" id="1_bgou6"]
+
+[sub_resource type="GDScript" id="GDScript_fm8fw"]
+script/source = "extends Node3D
+
+@onready var passed_array: PackedFloat32Array = [0, 0, 0, 0, 0]
+@onready var target_array: PackedFloat32Array = [0, 0, 0, 0, 0]
+func _ready() -> void:
+	$Hand.process_glove_data(passed_array)
+
+func _process(delta: float) -> void:
+	for digit in target_array.size():
+		if passed_array[digit] != target_array[digit]:
+			pass
+	$Hand.rotate_y(.3 * delta)
+
+func _unhandled_key_input(event: InputEvent) -> void:
+	if event.is_action(\"curl_thumb\"):
+			passed_array[0] = 0 if event.is_released() else 1023
+	if event.is_action(\"curl_index\"):
+			passed_array[1] = 0 if event.is_released() else 1023
+	if event.is_action(\"curl_middle\"):
+			passed_array[2] = 0 if event.is_released() else 1023
+	if event.is_action(\"curl_ring\"):
+			passed_array[3] = 0 if event.is_released() else 1023
+	if event.is_action(\"curl_little\"):
+			passed_array[4] = 0 if event.is_released() else 1023
+	$Hand.process_glove_data(passed_array)
+
+func _on_thumb_value_changed(value: float) -> void:
+	passed_array[0] = value
+	$Hand.process_glove_data(passed_array)
+
+func _on_index_value_changed(value: float) -> void:
+	passed_array[1] = value
+	$Hand.process_glove_data(passed_array)
+
+func _on_middle_value_changed(value: float) -> void:
+	passed_array[2] = value
+	$Hand.process_glove_data(passed_array)
+
+func _on_ring_value_changed(value: float) -> void:
+	passed_array[3] = value
+	$Hand.process_glove_data(passed_array)
+
+func _on_little_value_changed(value: float) -> void:
+	passed_array[4] = value
+	$Hand.process_glove_data(passed_array)
+"
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_noarx"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_a0tk4"]
+sky_material = SubResource("ProceduralSkyMaterial_noarx")
+
+[sub_resource type="Environment" id="Environment_r3fl7"]
+background_mode = 2
+sky = SubResource("Sky_a0tk4")
+glow_enabled = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_noarx"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="Node3D" type="Node3D" unique_id=265787471]
+script = SubResource("GDScript_fm8fw")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1049772160]
+environment = SubResource("Environment_r3fl7")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1236431324]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Hand" parent="." unique_id=435846465 instance=ExtResource("1_bgou6")]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=104681768]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0, 0.3059067)
+
+[node name="HandPanel" type="PanelContainer" parent="Camera3D" unique_id=358134938]
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -13.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_noarx")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Camera3D/HandPanel" unique_id=923444634]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Label" type="Label" parent="Camera3D/HandPanel/VBoxContainer" unique_id=171825647]
+layout_mode = 2
+text = "Flex Values"
+
+[node name="HBoxThumb" type="HBoxContainer" parent="Camera3D/HandPanel/VBoxContainer" unique_id=1313923356]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Camera3D/HandPanel/VBoxContainer/HBoxThumb" unique_id=1041212057]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Thumb"
+
+[node name="HSlider" type="HSlider" parent="Camera3D/HandPanel/VBoxContainer/HBoxThumb" unique_id=120708598]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+max_value = 1023.0
+rounded = true
+tick_count = 8
+ticks_on_borders = true
+ticks_position = 3
+
+[node name="HBoxIndex" type="HBoxContainer" parent="Camera3D/HandPanel/VBoxContainer" unique_id=1346632183]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Camera3D/HandPanel/VBoxContainer/HBoxIndex" unique_id=507330734]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Index"
+
+[node name="HSlider" type="HSlider" parent="Camera3D/HandPanel/VBoxContainer/HBoxIndex" unique_id=723146831]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+max_value = 1023.0
+rounded = true
+tick_count = 8
+ticks_on_borders = true
+ticks_position = 3
+
+[node name="HBoxMiddle" type="HBoxContainer" parent="Camera3D/HandPanel/VBoxContainer" unique_id=717502972]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Camera3D/HandPanel/VBoxContainer/HBoxMiddle" unique_id=373306905]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Middle"
+
+[node name="HSlider" type="HSlider" parent="Camera3D/HandPanel/VBoxContainer/HBoxMiddle" unique_id=1175833613]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+max_value = 1023.0
+rounded = true
+tick_count = 8
+ticks_on_borders = true
+ticks_position = 3
+
+[node name="HBoxRing" type="HBoxContainer" parent="Camera3D/HandPanel/VBoxContainer" unique_id=656788293]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Camera3D/HandPanel/VBoxContainer/HBoxRing" unique_id=1918618811]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Ring"
+
+[node name="HSlider" type="HSlider" parent="Camera3D/HandPanel/VBoxContainer/HBoxRing" unique_id=1859660505]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+max_value = 1023.0
+rounded = true
+tick_count = 8
+ticks_on_borders = true
+ticks_position = 3
+
+[node name="HBoxLittle" type="HBoxContainer" parent="Camera3D/HandPanel/VBoxContainer" unique_id=1504203012]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Camera3D/HandPanel/VBoxContainer/HBoxLittle" unique_id=1507689847]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Little"
+
+[node name="HSlider" type="HSlider" parent="Camera3D/HandPanel/VBoxContainer/HBoxLittle" unique_id=780451715]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+max_value = 1023.0
+rounded = true
+tick_count = 8
+ticks_on_borders = true
+ticks_position = 3
+
+[connection signal="value_changed" from="Camera3D/HandPanel/VBoxContainer/HBoxThumb/HSlider" to="." method="_on_thumb_value_changed"]
+[connection signal="value_changed" from="Camera3D/HandPanel/VBoxContainer/HBoxIndex/HSlider" to="." method="_on_index_value_changed"]
+[connection signal="value_changed" from="Camera3D/HandPanel/VBoxContainer/HBoxMiddle/HSlider" to="." method="_on_middle_value_changed"]
+[connection signal="value_changed" from="Camera3D/HandPanel/VBoxContainer/HBoxRing/HSlider" to="." method="_on_ring_value_changed"]
+[connection signal="value_changed" from="Camera3D/HandPanel/VBoxContainer/HBoxLittle/HSlider" to="." method="_on_little_value_changed"]
