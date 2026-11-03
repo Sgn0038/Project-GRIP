@@ -1,0 +1,205 @@
+[gd_scene format=3 uid="uid://drs5qptrs6rdb"]
+
+[ext_resource type="Script" uid="uid://bef2l27pneot2" path="res://fileMenu.gd" id="2_rhvop"]
+[ext_resource type="Script" uid="uid://h4nymref2gba" path="res://objectMenu.gd" id="3_ce0jw"]
+[ext_resource type="Script" uid="uid://bh55fxxjirywr" path="res://viewMenu.gd" id="3_vcv5r"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m0gfg"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 0.78431374)
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4vkur"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 0.78431374)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="UILayer" type="CanvasLayer" unique_id=1376167344]
+layer = 5
+
+[node name="Viewport" type="Control" parent="." unique_id=306465599]
+custom_minimum_size = Vector2(768, 432)
+layout_mode = 3
+anchor_right = 0.22900002
+anchor_bottom = 0.23700002
+offset_right = 1626.88
+offset_bottom = 909.36
+
+[node name="Object Editor" type="PanelContainer" parent="Viewport" unique_id=271527361]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.83000004
+anchor_top = 0.029000001
+anchor_right = 1.0
+anchor_bottom = 0.24800001
+offset_left = -0.60009766
+offset_top = -0.3200016
+offset_bottom = 808.16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Viewport/Object Editor" unique_id=366936628]
+layout_mode = 2
+size_flags_stretch_ratio = 8.2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="Viewport/Object Editor/VBoxContainer" unique_id=1385722441]
+layout_mode = 2
+text = "Object Inspector"
+horizontal_alignment = 1
+
+[node name="CheckButton" type="CheckButton" parent="Viewport/Object Editor/VBoxContainer" unique_id=1523324473]
+layout_mode = 2
+text = "Setting One"
+
+[node name="CheckButton2" type="CheckButton" parent="Viewport/Object Editor/VBoxContainer" unique_id=664990328]
+layout_mode = 2
+text = "Setting Two"
+
+[node name="CheckButton3" type="CheckButton" parent="Viewport/Object Editor/VBoxContainer" unique_id=1345328937]
+layout_mode = 2
+text = "Setting Three"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Viewport/Object Editor/VBoxContainer" unique_id=1133455673]
+layout_mode = 2
+size_flags_stretch_ratio = 1.54
+offset_transform_enabled = true
+offset_transform_position = Vector2(10, 0)
+
+[node name="Label" type="Label" parent="Viewport/Object Editor/VBoxContainer/HBoxContainer" unique_id=356209327]
+layout_mode = 2
+text = "Joint Size Input:"
+
+[node name="TextEdit" type="TextEdit" parent="Viewport/Object Editor/VBoxContainer/HBoxContainer/Label" unique_id=2070822924]
+layout_mode = 0
+offset_left = 143.0
+offset_top = -3.0
+offset_right = 315.0
+offset_bottom = 27.0
+text = "Joint Size"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Viewport/Object Editor/VBoxContainer" unique_id=1242815127]
+layout_mode = 2
+size_flags_stretch_ratio = 1.54
+offset_transform_enabled = true
+offset_transform_position = Vector2(10, 0)
+
+[node name="Label" type="Label" parent="Viewport/Object Editor/VBoxContainer/HBoxContainer2" unique_id=50039065]
+layout_mode = 2
+text = "Field 2"
+
+[node name="TextEdit" type="TextEdit" parent="Viewport/Object Editor/VBoxContainer/HBoxContainer2/Label" unique_id=1582296315]
+layout_mode = 0
+offset_left = 143.0
+offset_top = -3.0
+offset_right = 315.0
+offset_bottom = 27.0
+text = "Text Input"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Viewport/Object Editor/VBoxContainer" unique_id=1639746475]
+layout_mode = 2
+size_flags_stretch_ratio = 1.54
+offset_transform_enabled = true
+offset_transform_position = Vector2(10, 0)
+
+[node name="Label" type="Label" parent="Viewport/Object Editor/VBoxContainer/HBoxContainer3" unique_id=501316334]
+layout_mode = 2
+text = "Field 3"
+
+[node name="TextEdit" type="TextEdit" parent="Viewport/Object Editor/VBoxContainer/HBoxContainer3/Label" unique_id=1796691222]
+layout_mode = 0
+offset_left = 143.0
+offset_top = -3.0
+offset_right = 315.0
+offset_bottom = 27.0
+text = "Text Input"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Viewport/Object Editor/VBoxContainer" unique_id=1828028522]
+layout_mode = 2
+size_flags_stretch_ratio = 1.54
+offset_transform_enabled = true
+offset_transform_position = Vector2(10, 0)
+
+[node name="Label" type="Label" parent="Viewport/Object Editor/VBoxContainer/HBoxContainer4" unique_id=1783424090]
+layout_mode = 2
+text = "Field 4"
+
+[node name="TextEdit" type="TextEdit" parent="Viewport/Object Editor/VBoxContainer/HBoxContainer4/Label" unique_id=1784394741]
+layout_mode = 0
+offset_left = 143.0
+offset_top = -3.0
+offset_right = 315.0
+offset_bottom = 27.0
+text = "Text Input"
+
+[node name="Menu Bar" type="PanelContainer" parent="Viewport" unique_id=507171995]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 28.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_m0gfg")
+
+[node name="MenuBar" type="MenuBar" parent="Viewport/Menu Bar" unique_id=1268811944]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.101960786, 0.101960786, 0.101960786, 0.78431374)
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_4vkur")
+flat = true
+switch_on_hover = false
+metadata/_edit_lock_ = true
+
+[node name="File" type="PopupMenu" parent="Viewport/Menu Bar/MenuBar" unique_id=2084053898]
+oversampling_override = 1.0
+position = Vector2i(0, 31)
+size = Vector2i(132, 100)
+hide_on_item_selection = false
+hide_on_checkable_item_selection = false
+allow_search = false
+system_menu_id = 2
+script = ExtResource("2_rhvop")
+
+[node name="View" type="PopupMenu" parent="Viewport/Menu Bar/MenuBar" unique_id=2108924060]
+oversampling_override = 1.0
+position = Vector2i(0, 31)
+hide_on_item_selection = false
+hide_on_checkable_item_selection = false
+allow_search = false
+system_menu_id = 2
+script = ExtResource("3_vcv5r")
+
+[node name="Object" type="PopupMenu" parent="Viewport/Menu Bar/MenuBar" unique_id=1770529528]
+oversampling_override = 1.0
+position = Vector2i(0, 31)
+hide_on_item_selection = false
+hide_on_checkable_item_selection = false
+allow_search = false
+system_menu_id = 2
+script = ExtResource("3_ce0jw")
+
+[node name="ObjectFilePicker" type="FileDialog" parent="Viewport/Menu Bar/MenuBar/Object" unique_id=1099701460]
+title = "Open a File"
+initial_position = 2
+dialog_hide_on_ok = true
+file_mode = 0
+display_mode = 1
+access = 2
+filters = PackedStringArray("*.fbx", "*.obj", "*.stl")
+use_native_dialog = true
+
+[node name="Help" type="PopupMenu" parent="Viewport/Menu Bar/MenuBar" unique_id=1448463642]
+oversampling_override = 1.0
+position = Vector2i(0, 31)
+hide_on_item_selection = false
+hide_on_checkable_item_selection = false
+allow_search = false
+system_menu_id = 2

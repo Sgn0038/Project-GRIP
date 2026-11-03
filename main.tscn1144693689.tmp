@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dhl02rir7ff47"]
+
+[ext_resource type="Script" uid="uid://dsbes1jjy33pq" path="res://main.gd" id="1_h2yge"]
+[ext_resource type="PackedScene" uid="uid://cm0u6rlp1warw" path="res://3D.tscn" id="2_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://drs5qptrs6rdb" path="res://Screen.tscn" id="3_lquwl"]
+
+[node name="Main" type="Node3D" unique_id=1985495319]
+script = ExtResource("1_h2yge")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=314616285]
+layer = 5
+
+[node name="UI" parent="CanvasLayer" unique_id=306465599 instance=ExtResource("3_lquwl")]
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=615571412]
+
+[node name="Space" parent="CanvasLayer2" unique_id=371144578 instance=ExtResource("2_1bvp3")]
