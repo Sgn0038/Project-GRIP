@@ -1,6 +1,5 @@
 extends Node3D
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Connect Signals from menu to this script
@@ -30,6 +29,11 @@ func load_object_model(path: String):
 			root_node = MeshInstance3D.new()
 			root_node.mesh = document_load # Load the byte data to a mesh
 			add_child(root_node) # Add the object as a child
+		"stl":
+			document_load = STLIO.Importer.LoadFromPath(path)
+			root_node = MeshInstance3D.new()
+			root_node.mesh = document_load
+			add_child(root_node)
 			
 	var spawned_object = get_child(get_child_count() - 1) 
 	if spawned_object is Node3D:
