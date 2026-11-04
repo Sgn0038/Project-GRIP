@@ -30,9 +30,9 @@ func _process(delta: float) -> void:
 	var input_dir = Vector3.ZERO
 
 	if Input.is_key_pressed(KEY_W):
-		input_dir.z -= 1.0
+		input_dir.y += 1.0
 	if Input.is_key_pressed(KEY_S):
-		input_dir.z += 1.0
+		input_dir.y -= 1.0
 	if Input.is_key_pressed(KEY_A):
 		input_dir.x -= 1.0
 	if Input.is_key_pressed(KEY_D):

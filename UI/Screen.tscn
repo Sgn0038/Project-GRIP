@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://drs5qptrs6rdb"]
 
-[ext_resource type="Script" uid="uid://bef2l27pneot2" path="res://fileMenu.gd" id="2_rhvop"]
-[ext_resource type="Script" uid="uid://h4nymref2gba" path="res://objectMenu.gd" id="3_ce0jw"]
-[ext_resource type="Script" uid="uid://bh55fxxjirywr" path="res://viewMenu.gd" id="3_vcv5r"]
+[ext_resource type="Script" uid="uid://bef2l27pneot2" path="res://UI/fileMenu.gd" id="2_rhvop"]
+[ext_resource type="Script" uid="uid://h4nymref2gba" path="res://UI/objectMenu.gd" id="3_ce0jw"]
+[ext_resource type="Script" uid="uid://bh55fxxjirywr" path="res://UI/viewMenu.gd" id="3_vcv5r"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m0gfg"]
 content_margin_left = 0.0

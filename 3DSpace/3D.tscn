@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://cm0u6rlp1warw"]
+
+[ext_resource type="Script" uid="uid://pnm13hohy3qx" path="res://3DSpace/object_handler.gd" id="1_7xoob"]
+[ext_resource type="Script" uid="uid://dp4mb0t3mgung" path="res://3DSpace/camera_3d.gd" id="2_7xoob"]
+[ext_resource type="PackedScene" uid="uid://b8cwnoqughv10" path="res://hand/hand.tscn" id="3_jkk2y"]
+
+[sub_resource type="Gradient" id="Gradient_gxarf"]
+resource_local_to_scene = true
+colors = PackedColorArray(0.3264223, 0.5324067, 1, 1, 1, 0.075414546, 0.6457988, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nadom"]
+gradient = SubResource("Gradient_gxarf")
+fill = 1
+fill_from = Vector2(0.5071685, 0.9767025)
+fill_to = Vector2(0.46057346, 0)
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_lb7qe"]
+panorama = SubResource("GradientTexture2D_nadom")
+
+[sub_resource type="Sky" id="Sky_x2q4q"]
+sky_material = SubResource("PanoramaSkyMaterial_lb7qe")
+radiance_size = 1
+
+[sub_resource type="Environment" id="Environment_jltlb"]
+background_mode = 2
+background_color = Color(0.9681179, 0.94858456, 0.9929336, 1)
+background_energy_multiplier = 1.02
+sky = SubResource("Sky_x2q4q")
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_sky_contribution = 0.0
+ambient_light_energy = 0.67
+
+[node name="3DLayer" type="CanvasLayer" unique_id=1526374013]
+
+[node name="Render" type="Node3D" parent="." unique_id=1616919160]
+
+[node name="Object Handler" type="Node3D" parent="Render" unique_id=432150039]
+script = ExtResource("1_7xoob")
+spawn_position = Vector3(1, 1, 1)
+spawn_size = 0.3
+
+[node name="Lighting" type="WorldEnvironment" parent="Render" unique_id=633875977]
+environment = SubResource("Environment_jltlb")
+
+[node name="Camera3D" type="Camera3D" parent="Render" unique_id=2138174349]
+transform = Transform3D(-1, 8.742278e-08, 3.821371e-15, 0, -4.371139e-08, 1, 8.742278e-08, 1, 4.371139e-08, 0, 1.0293884, 0)
+current = true
+fov = 90.0
+near = 0.008
+script = ExtResource("2_7xoob")
+move_speed = 1.0
+zoom_speed = 0.5
+
+[node name="Hand" parent="Render" unique_id=435846465 instance=ExtResource("3_jkk2y")]
+transform = Transform3D(8.742278e-08, 2, -3.019916e-07, 2, -8.742278e-08, 0, -1.3200472e-14, -3.019916e-07, -2, 0, 0, -0.6560811)
