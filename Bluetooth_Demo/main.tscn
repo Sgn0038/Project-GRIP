@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://db58jvp10jmnb"]
+
+[ext_resource type="Script" uid="uid://ccf5wi13okirm" path="res://Main.cs" id="1_ig7tw"]
+
+[node name="Main" type="Control" unique_id=2030606603]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 36.0
+offset_right = 6.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ig7tw")
+
+[node name="Title Label" type="Label" parent="." unique_id=724637503]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Godot test demo started!"
+
+[node name="Status Label" type="Label" parent="." unique_id=2039485299]
+layout_mode = 0
+offset_top = 23.0
+offset_right = 266.0
+offset_bottom = 46.0
+text = "Connection Status: Not Connected"
+
+[node name="Scan and Connect" type="Button" parent="." unique_id=875813973]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 47.0
+offset_right = 50.0
+offset_bottom = 78.0
+text = "Scan and Connect
+"
+
+[node name="Disconnect" type="Button" parent="." unique_id=1188492021]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 81.0
+offset_right = 77.0
+offset_bottom = 112.0
+text = "Disconnect"
+
+[node name="Received Data Label" type="Label" parent="." unique_id=293261733]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 115.0
+offset_right = 119.0
+offset_bottom = 138.0
+text = "Received Data:"
+
+[connection signal="pressed" from="Scan and Connect" to="." method="OnScannerButtonPressed"]
+[connection signal="pressed" from="Disconnect" to="." method="OnDisconnectButtonPressed"]
