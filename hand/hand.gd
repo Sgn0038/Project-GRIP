@@ -34,6 +34,7 @@ var bone_lengths: Dictionary = {}
 var _bone_areas: Dictionary = {} # Stores Area3D references mapped to finger indices
 
 func _ready() -> void:
+	SignalBus.view_hand_toggle.connect(toggle_hand)
 	_initialize_collision_detectors()
 	if not skeleton:
 		if skeleton_path:
@@ -46,6 +47,14 @@ func _ready() -> void:
 		_cache_bone_lengths()
 	else:
 		push_warning("XRHandGloveDriver: No Skeleton3D found. Please assign skeleton_path.")
+
+func toggle_hand(toggled:bool):
+	if toggled:
+		visible = true
+		process_mode = Node.PROCESS_MODE_INHERIT
+	if not toggled:
+		visible = false
+		process_mode = Node.PROCESS_MODE_DISABLED
 
 func _find_skeleton(node: Node) -> Skeleton3D:
 	if node is Skeleton3D:
@@ -224,3 +233,5 @@ func _on_finger_hit(body: Node3D, finger_index: int) -> void:
 
 func _on_finger_exit(_body: Node3D, finger_index: int) -> void:
 	_finger_collision_depths[finger_index] = 0.0
+	
+	
